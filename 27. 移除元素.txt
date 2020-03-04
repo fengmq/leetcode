@@ -1,0 +1,15 @@
+遇到第一个一样的，就把数组最后一个放到这，然后i--继续判定；
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {
+        int length=nums.size()-1;
+        for(int i=0;i<=length;i++)
+            if(nums[i]==val)
+            {
+                nums[i]=nums[length];
+                i--;
+                length--;
+            }
+        return length+1;
+    }
+};
