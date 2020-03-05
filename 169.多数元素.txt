@@ -1,0 +1,27 @@
+
+效率低下
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int num=nums.size(); 
+        sort(nums.begin(),nums.end());
+        int i;
+        for( i=1;i<num;i++)
+        {
+            if(nums[i]!=nums[i-1])
+            {
+                if(i>num/2)
+                break;
+            }
+        }
+        return nums[i-1];
+    }
+};
+//效率依旧低下
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        return nums[nums.size()/2];
+    }
+};
