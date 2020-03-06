@@ -1,0 +1,48 @@
+
+暴力超时
+lass Solution {
+public:
+    bool containsNearbyDuplicate(vector<int>& nums, int k) {
+        if(nums.size()<=1||k==0) return false;
+        for(int i=0;i<nums.size()-1;i++)
+        {
+            for(int j=i+1;j<=i+k;j++)
+            {
+                if(j>nums.size()-1)
+                break;
+                if(nums[i]==nums[j])
+                return true;
+            }
+        }
+        return false;
+    }
+};
+
+
+
+c++哈希，，
+
+class Solution {
+public:
+    bool containsNearbyDuplicate(vector<int>& nums, int k) {
+      unordered_map<int,int> umap;//哈希表，键为nums[i]，值为i，该hash的size为k；利用该哈希表形成一个滑动窗口
+		for (int i = 0; i < nums.size(); i++)
+		{
+			if (umap.find(nums[i])!=umap.end())//如果hash表中能找到重复元素，说明存在
+			{
+				return true;
+			}
+			umap.insert(make_pair(nums[i],i));//向hash表中添加元素
+			if (umap.size()>k)//哈希表大小超过k，则删除最旧的元素/最先添加的元素
+			{
+				umap.erase(nums[i - k]);
+			}
+		}
+		return false;
+    }
+};
+
+作者：xdb
+链接：https://leetcode-cn.com/problems/contains-duplicate-ii/solution/c-ha-xi-biao-gou-cheng-hua-dong-chuang-kou-jie-jue/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

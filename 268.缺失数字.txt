@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        int i;
+        for(i=0;i<nums.size();i++)
+        {
+            if(i!=nums[i])
+            break;
+        }
+        return i;
+    }
+};
+
+
+计算0-n的和，减去每一项，剩下的就是缺失的
+
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int add = (nums.size()+1)*nums.size()/2;
+        for(int i=0;i<nums.size();i++)
+        {
+            add-=nums[i];
+        }
+        return add;
+    }
+};

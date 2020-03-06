@@ -1,0 +1,29 @@
+方法一：枚举 + 暴力
+class Solution {
+public:
+    vector<vector<int>> findContinuousSequence(int target) {
+        vector<vector<int>> result;
+        if(target<3)
+        return result;
+        for(int i=1;i<=target/2+1;i++)
+        {
+            vector<int> temp;
+            int add=0;
+            temp.push_back(i);
+            add+=i;
+            for(int j=i+1;j<=target/2+1;j++)
+            {
+                temp.push_back(j);
+                add+=j;
+                if(add>target)
+                    break;
+                else if(add==target)
+                 {
+                    result.push_back(temp);
+                    break;
+                }
+            }
+        } 
+        return result;
+    }
+};
