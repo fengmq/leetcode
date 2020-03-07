@@ -1,0 +1,14 @@
+排序之久，奇数位之和就是最大
+class Solution {
+public:
+    int arrayPairSum(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        int add=0;
+        for(int i=0;i<nums.size();i++)
+        {
+            add+=nums[i];
+            i++;
+        }
+    return add;
+    }
+};
