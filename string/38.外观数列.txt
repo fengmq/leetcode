@@ -1,0 +1,27 @@
+class Solution {
+public:
+    string countAndSay(int n) {
+
+        string prep="1";
+        string next="";
+        int count=0;
+        char num;
+        for(int i=1;i<n;i++) //n次
+        {
+            int j=0;
+            while(j<prep.size())
+            {
+                num=prep[j];
+                int s=j+1;
+                while(s<prep.size()&&prep[j]==prep[s])
+                s++;
+                next+=(std::to_string(s-j)+num);
+                j+=(s-j);
+
+            }
+            prep=next;
+            next="";
+        }
+        return prep;
+    }
+};
