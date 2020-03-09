@@ -1,0 +1,45 @@
+//首先将两个数字补成一样长的，前补0.
+//carry初始为0，然后将a的第一位加到carry，再将b的第二位加到carry，
+//如果carry%2==0，则此位置为0，然后carry/=2；
+//如果carry%2==1，则此位置为1，然后carry/=2；
+最后跳出循环之后，在判断最终进位，即可。
+
+class Solution {
+public:
+    string addBinary(string a, string b) {
+        int max;
+        int al=a.size(),bl=b.size();
+        if(al==0&&bl==0)
+        return "0";
+        if(al>bl)
+        {
+            max=al;
+            for(int i=0;i<al-bl;i++)
+            b=" "+b;
+        }
+       else if(al<bl)
+        {
+            max=bl;
+            for(int i=0;i<bl-al;i++)
+            a=" "+a;
+        }
+
+        int carry = 0;
+        string result="";
+        for(int i=a.size()-1;i>=0;i--)
+        {
+            if(a[i]=='1')
+                carry+=1;
+            if(b[i]=='1')
+                 carry += 1;
+            if(carry%2==0)
+                result="0"+result;
+            else 
+                result="1"+result;
+            carry/=2;
+        }
+        if(carry==1)
+            result="1"+result;
+        return result;      
+    }
+};

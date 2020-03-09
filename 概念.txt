@@ -1,0 +1,10 @@
+//c++内置函数
+islower(char c) 是否为小写字母
+isuppper(char c) 是否为大写字母
+isdigit(char c) 是否为数字
+isalpha(char c) 是否为字母
+isalnum(char c) 是否为字母或者数字
+toupper(char c) 字母小转大
+tolower(char c) 字母大转小
+
+vector<>相关函数，二维vector
