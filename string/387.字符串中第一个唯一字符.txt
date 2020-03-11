@@ -21,8 +21,7 @@ public:
                 flag=false;
                 continue;
             }
-            return i;
-                
+            return i;           
         }
         return -1;
     }
