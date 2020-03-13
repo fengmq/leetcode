@@ -1,0 +1,15 @@
+class Solution {
+public:
+    bool detectCapitalUse(string word) {
+  int up = 0;
+        int low = 0;
+        for (char c : word)
+        {
+            if (isupper(c))
+                up++;
+            else
+                low++;
+        }
+        return up == 0 || low == 0 || (up == 1 && isupper(word[0]));
+    }
+};
